@@ -22,6 +22,7 @@ export default function LoginPage() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isDemoLoading, setIsDemoLoading] = useState(false);
   const [loginError, setLoginError] = useState<string | null>(null);
 
   const {
@@ -168,6 +169,47 @@ export default function LoginPage() {
           </svg>
           Google
         </button>
+      </div>
+
+      <div className="mt-6">
+        <div className="relative">
+          <div className="absolute inset-0 flex items-center">
+            <div className="w-full border-t border-gray-200" />
+          </div>
+          <div className="relative flex justify-center text-sm">
+            <span className="px-4 bg-white text-gray-400">ou</span>
+          </div>
+        </div>
+
+        <Button
+          type="button"
+          variant="outline"
+          className="mt-4 w-full border-amber-300 text-amber-700 hover:bg-amber-50"
+          isLoading={isDemoLoading}
+          onClick={async () => {
+            setIsDemoLoading(true);
+            setLoginError(null);
+            try {
+              const supabase = createClient();
+              const { error } = await supabase.auth.signInWithPassword({
+                email: 'devlup@devlup.ca',
+                password: '12345678',
+              });
+              if (error) {
+                setLoginError('Erro ao acessar demo. Tente novamente.');
+                return;
+              }
+              router.replace('/dashboard');
+              router.refresh();
+            } catch {
+              setLoginError('Erro ao acessar demo. Tente novamente.');
+            } finally {
+              setIsDemoLoading(false);
+            }
+          }}
+        >
+          Ver Demo
+        </Button>
       </div>
 
       <p className="mt-8 text-center text-sm text-gray-500">
