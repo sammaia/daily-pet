@@ -18,14 +18,14 @@ const mockPet = {
   id: '1',
   name: 'Thor',
   breed: 'Golden Retriever',
-  birthDate: '15/03/2023',
-  gender: 'Macho',
+  birthDate: '03/15/2023',
+  gender: 'Male',
   weight: '32kg',
-  size: 'Grande',
-  color: 'Dourado',
+  size: 'Large',
+  color: 'Golden',
   neutered: true,
-  allergies: ['Frango', 'Pulgas'],
-  observations: 'Muito ativo, precisa de bastante exercicio. Pode ser dominante com caes menores.',
+  allergies: ['Chicken', 'Fleas'],
+  observations: 'Very active, needs plenty of exercise. Can be dominant with smaller dogs.',
   tutorName: 'Joao Silva',
   tutorPhone: '(31) 99999-1234',
   tutorEmail: 'joao@email.com',
@@ -33,9 +33,9 @@ const mockPet = {
 
 const mockVaccines = [
   { id: '1', name: 'V10', appliedDate: '2025-06-15', expiryDate: '2026-06-15', status: 'valid', veterinarian: 'Dr. Carlos' },
-  { id: '2', name: 'Antirrabica', appliedDate: '2025-08-10', expiryDate: '2026-08-10', status: 'valid', veterinarian: 'Dr. Carlos' },
-  { id: '3', name: 'Giardíase', appliedDate: '2025-01-20', expiryDate: '2026-01-20', status: 'expired', veterinarian: 'Dra. Ana' },
-  { id: '4', name: 'Gripe Canina', appliedDate: '2025-11-05', expiryDate: '2026-05-05', status: 'expiring_soon', veterinarian: 'Dr. Carlos' },
+  { id: '2', name: 'Rabies', appliedDate: '2025-08-10', expiryDate: '2026-08-10', status: 'valid', veterinarian: 'Dr. Carlos' },
+  { id: '3', name: 'Giardia', appliedDate: '2025-01-20', expiryDate: '2026-01-20', status: 'expired', veterinarian: 'Dr. Ana' },
+  { id: '4', name: 'Kennel Cough', appliedDate: '2025-11-05', expiryDate: '2026-05-05', status: 'expiring_soon', veterinarian: 'Dr. Carlos' },
 ];
 
 const mockBookings = [
@@ -47,16 +47,16 @@ const mockBookings = [
 ];
 
 const mockReports = [
-  { id: '1', date: '2026-02-20', feeding: 5, behavior: 4, socialization: 4, energy: 5, overall: 4.5, caregiverName: 'Paula', notes: 'Brincou muito com Luna' },
+  { id: '1', date: '2026-02-20', feeding: 5, behavior: 4, socialization: 4, energy: 5, overall: 4.5, caregiverName: 'Paula', notes: 'Played a lot with Luna' },
   { id: '2', date: '2026-02-18', feeding: 4, behavior: 3, socialization: 5, energy: 4, overall: 4, caregiverName: 'Ricardo' },
-  { id: '3', date: '2026-02-15', feeding: 5, behavior: 5, socialization: 4, energy: 3, overall: 4.3, caregiverName: 'Paula', notes: 'Dia tranquilo' },
+  { id: '3', date: '2026-02-15', feeding: 5, behavior: 5, socialization: 4, energy: 3, overall: 4.3, caregiverName: 'Paula', notes: 'Calm day' },
 ];
 
 const tabs = [
-  { id: 'info', label: 'Informacoes' },
-  { id: 'vaccines', label: 'Vacinas', count: mockVaccines.length },
-  { id: 'history', label: 'Historico', count: mockBookings.length },
-  { id: 'reports', label: 'Boletins', count: mockReports.length },
+  { id: 'info', label: 'Information' },
+  { id: 'vaccines', label: 'Vaccines', count: mockVaccines.length },
+  { id: 'history', label: 'History', count: mockBookings.length },
+  { id: 'reports', label: 'Report Cards', count: mockReports.length },
 ];
 
 export default function PetProfilePage() {
@@ -78,13 +78,13 @@ export default function PetProfilePage() {
           <div className="flex-1">
             <div className="flex items-center gap-3">
               <h1 className="text-2xl font-bold text-gray-900">{mockPet.name}</h1>
-              <Badge variant="success" dot>Ativo</Badge>
+              <Badge variant="success" dot>Active</Badge>
             </div>
             <p className="text-gray-500">{mockPet.breed} — {mockPet.gender}, {mockPet.weight}</p>
-            <p className="text-sm text-gray-400">Tutor: {mockPet.tutorName}</p>
+            <p className="text-sm text-gray-400">Owner: {mockPet.tutorName}</p>
           </div>
           <Button variant="outline" className="gap-2 shrink-0">
-            <Edit size={14} /> Editar
+            <Edit size={14} /> Edit
           </Button>
         </div>
       </div>

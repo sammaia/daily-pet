@@ -11,7 +11,7 @@ interface RevenueChartProps {
 export function RevenueChart({ data }: RevenueChartProps) {
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-5">
-      <h3 className="font-semibold text-gray-800 mb-4">Receita</h3>
+      <h3 className="font-semibold text-gray-800 mb-4">Revenue</h3>
       <div className="h-64">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart data={data} margin={{ top: 5, right: 5, left: -20, bottom: 0 }}>
@@ -25,7 +25,7 @@ export function RevenueChart({ data }: RevenueChartProps) {
             <XAxis dataKey="label" tick={{ fontSize: 12 }} stroke="#9ca3af" />
             <YAxis tick={{ fontSize: 12 }} stroke="#9ca3af" tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
             <Tooltip
-              formatter={(value) => [formatCurrency(Number(value)), 'Receita']}
+              formatter={(value) => [formatCurrency(Number(value)), 'Revenue']}
               contentStyle={{ borderRadius: '8px', border: '1px solid #e5e7eb', fontSize: '13px' }}
             />
             <Area type="monotone" dataKey="revenue" stroke="#3b82f6" strokeWidth={2} fill="url(#colorRevenue)" />

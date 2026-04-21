@@ -41,10 +41,10 @@ export function BookingTable({ bookings, onRowClick, isLoading }: BookingTablePr
         </div>
       ),
     },
-    { key: 'tutorName', label: 'Tutor', sortable: true },
+    { key: 'tutorName', label: 'Owner', sortable: true },
     {
       key: 'shift',
-      label: 'Turno',
+      label: 'Shift',
       render: (row) => (
         <span className="text-sm">{shiftLabels[row.shift] || row.shift}</span>
       ),
@@ -80,7 +80,7 @@ export function BookingTable({ bookings, onRowClick, isLoading }: BookingTablePr
       keyExtractor={(r) => r.id}
       onRowClick={onRowClick}
       isLoading={isLoading}
-      emptyMessage="Nenhum agendamento encontrado"
+      emptyMessage="No bookings found"
     />
   );
 }

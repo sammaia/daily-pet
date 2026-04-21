@@ -32,31 +32,31 @@ export function ReportForm({ open, onClose, petName = 'Pet' }: ReportFormProps) 
   }
 
   return (
-    <Modal open={open} onClose={onClose} title={`Boletim — ${petName}`} className="max-w-lg">
+    <Modal open={open} onClose={onClose} title={`Report Card — ${petName}`} className="max-w-lg">
       <form onSubmit={handleSubmit} className="space-y-5">
         <div className="flex items-center gap-3 bg-amber-50 rounded-lg p-3 mb-2">
           <Avatar name={petName} size="sm" />
-          <span className="text-sm font-medium text-amber-800">Avaliacao do dia para {petName}</span>
+          <span className="text-sm font-medium text-amber-800">Daily evaluation for {petName}</span>
         </div>
 
-        <StarRatingInput label="Alimentacao" value={feeding} onChange={setFeeding} />
-        <StarRatingInput label="Comportamento" value={behavior} onChange={setBehavior} />
-        <StarRatingInput label="Socializacao" value={socialization} onChange={setSocialization} />
-        <StarRatingInput label="Energia / Disposicao" value={energy} onChange={setEnergy} />
+        <StarRatingInput label="Feeding" value={feeding} onChange={setFeeding} />
+        <StarRatingInput label="Behavior" value={behavior} onChange={setBehavior} />
+        <StarRatingInput label="Socialization" value={socialization} onChange={setSocialization} />
+        <StarRatingInput label="Energy / Mood" value={energy} onChange={setEnergy} />
 
         <Textarea
-          label="Observacoes do dia"
-          placeholder="Como foi o dia do pet? Alguma ocorrencia?"
+          label="Daily Notes"
+          placeholder="How was the pet's day? Any incidents?"
           value={notes}
           onChange={(e) => setNotes(e.target.value)}
         />
 
         <div className="flex justify-end gap-3 pt-2">
           <Button variant="outline" type="button" onClick={onClose}>
-            Cancelar
+            Cancel
           </Button>
           <Button type="submit" disabled={!feeding || !behavior || !socialization || !energy}>
-            Salvar Boletim
+            Save Report Card
           </Button>
         </div>
       </form>

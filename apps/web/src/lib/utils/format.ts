@@ -1,5 +1,5 @@
 import { format, formatDistanceToNow, isToday, isYesterday, parseISO } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
+import { enUS } from 'date-fns/locale';
 
 export function formatCurrency(value: number): string {
   return new Intl.NumberFormat('pt-BR', {
@@ -10,14 +10,14 @@ export function formatCurrency(value: number): string {
 
 export function formatDate(date: string | Date): string {
   const d = typeof date === 'string' ? parseISO(date) : date;
-  if (isToday(d)) return 'Hoje';
-  if (isYesterday(d)) return 'Ontem';
-  return format(d, "dd 'de' MMM, yyyy", { locale: ptBR });
+  if (isToday(d)) return 'Today';
+  if (isYesterday(d)) return 'Yesterday';
+  return format(d, "MMM dd, yyyy", { locale: enUS });
 }
 
 export function formatDateShort(date: string | Date): string {
   const d = typeof date === 'string' ? parseISO(date) : date;
-  return format(d, 'dd/MM/yyyy');
+  return format(d, 'MM/dd/yyyy');
 }
 
 export function formatTime(date: string | Date): string {
@@ -27,7 +27,7 @@ export function formatTime(date: string | Date): string {
 
 export function formatRelative(date: string | Date): string {
   const d = typeof date === 'string' ? parseISO(date) : date;
-  return formatDistanceToNow(d, { addSuffix: true, locale: ptBR });
+  return formatDistanceToNow(d, { addSuffix: true, locale: enUS });
 }
 
 export function formatPhone(phone: string): string {

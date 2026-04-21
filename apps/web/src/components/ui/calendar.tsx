@@ -14,7 +14,7 @@ import {
   subMonths,
   isToday,
 } from 'date-fns';
-import { ptBR } from 'date-fns/locale';
+import { enUS } from 'date-fns/locale';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils/cn';
 
@@ -36,11 +36,11 @@ export function Calendar({ selected, onSelect, markers = [], className }: Calend
 
   const monthStart = startOfMonth(currentMonth);
   const monthEnd = endOfMonth(currentMonth);
-  const calStart = startOfWeek(monthStart, { locale: ptBR });
-  const calEnd = endOfWeek(monthEnd, { locale: ptBR });
+  const calStart = startOfWeek(monthStart, { locale: enUS });
+  const calEnd = endOfWeek(monthEnd, { locale: enUS });
   const days = eachDayOfInterval({ start: calStart, end: calEnd });
 
-  const weekDays = ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'];
+  const weekDays = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
   function getMarker(date: Date) {
     return markers.find((m) => isSameDay(m.date, date));
@@ -56,7 +56,7 @@ export function Calendar({ selected, onSelect, markers = [], className }: Calend
           <ChevronLeft size={18} className="text-gray-600" />
         </button>
         <h3 className="text-sm font-semibold text-gray-800 capitalize">
-          {format(currentMonth, 'MMMM yyyy', { locale: ptBR })}
+          {format(currentMonth, 'MMMM yyyy', { locale: enUS })}
         </h3>
         <button
           onClick={() => setCurrentMonth(addMonths(currentMonth, 1))}

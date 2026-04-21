@@ -23,7 +23,7 @@ export function PetVaccinesTab({ vaccines }: PetVaccinesTabProps) {
   const columns: Column<Vaccine>[] = [
     {
       key: 'name',
-      label: 'Vacina',
+      label: 'Vaccine',
       sortable: true,
       render: (row) => (
         <div className="flex items-center gap-2">
@@ -34,12 +34,12 @@ export function PetVaccinesTab({ vaccines }: PetVaccinesTabProps) {
     },
     {
       key: 'appliedDate',
-      label: 'Aplicacao',
+      label: 'Applied',
       render: (row) => <span>{formatDateShort(row.appliedDate)}</span>,
     },
     {
       key: 'expiryDate',
-      label: 'Vencimento',
+      label: 'Expiry',
       sortable: true,
       render: (row) => <span>{formatDateShort(row.expiryDate)}</span>,
     },
@@ -51,22 +51,22 @@ export function PetVaccinesTab({ vaccines }: PetVaccinesTabProps) {
         return <Badge variant={cfg.variant} dot>{cfg.label}</Badge>;
       },
     },
-    { key: 'veterinarian', label: 'Veterinario' },
+    { key: 'veterinarian', label: 'Veterinarian' },
   ];
 
   return (
     <div className="space-y-4">
       <div className="flex items-center justify-between">
-        <p className="text-sm text-gray-500">Controle de vacinacao</p>
+        <p className="text-sm text-gray-500">Vaccination records</p>
         <Button size="sm" variant="outline" className="gap-1.5">
-          <Plus size={14} /> Registrar Vacina
+          <Plus size={14} /> Register Vaccine
         </Button>
       </div>
       <DataTable
         columns={columns}
         data={vaccines}
         keyExtractor={(r) => r.id}
-        emptyMessage="Nenhuma vacina registrada"
+        emptyMessage="No vaccines registered"
       />
     </div>
   );

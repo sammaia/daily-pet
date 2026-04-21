@@ -10,11 +10,11 @@ import { Avatar } from '@/components/ui/avatar';
 import { useRealtimeMessages } from '@/hooks/use-realtime-messages';
 
 const mockConversations: Conversation[] = [
-  { id: '1', tutorName: 'Joao Silva', petName: 'Thor', lastMessage: 'Otimo! Vamos espera-lo. Ate amanha!', lastMessageAt: '2026-02-23T09:10:00', unreadCount: 0 },
-  { id: '2', tutorName: 'Ana Costa', petName: 'Luna', lastMessage: 'Sem problemas Ana! Ja cancelo a reserva de sexta.', lastMessageAt: '2026-02-22T14:15:00', unreadCount: 0 },
-  { id: '3', tutorName: 'Pedro Santos', petName: 'Bob', lastMessage: 'Sim por favor!', lastMessageAt: '2026-02-21T15:12:00', unreadCount: 1 },
-  { id: '4', tutorName: 'Carla Lima', petName: 'Mel', lastMessage: 'Quando posso levar a Mel pra avaliacao?', lastMessageAt: '2026-02-20T10:00:00', unreadCount: 1 },
-  { id: '5', tutorName: 'Lucas Rocha', petName: 'Rex', lastMessage: 'O Rex adorou o dia de hoje!', lastMessageAt: '2026-02-19T18:00:00', unreadCount: 0 },
+  { id: '1', tutorName: 'Joao Silva', petName: 'Thor', lastMessage: 'Great! We will be waiting for him. See you tomorrow!', lastMessageAt: '2026-02-23T09:10:00', unreadCount: 0 },
+  { id: '2', tutorName: 'Ana Costa', petName: 'Luna', lastMessage: 'No problem Ana! I will cancel the Friday reservation.', lastMessageAt: '2026-02-22T14:15:00', unreadCount: 0 },
+  { id: '3', tutorName: 'Pedro Santos', petName: 'Bob', lastMessage: 'Yes please!', lastMessageAt: '2026-02-21T15:12:00', unreadCount: 1 },
+  { id: '4', tutorName: 'Carla Lima', petName: 'Mel', lastMessage: 'When can I bring Mel for an evaluation?', lastMessageAt: '2026-02-20T10:00:00', unreadCount: 1 },
+  { id: '5', tutorName: 'Lucas Rocha', petName: 'Rex', lastMessage: 'Rex loved his day today!', lastMessageAt: '2026-02-19T18:00:00', unreadCount: 0 },
 ];
 
 export default function ChatPage() {
@@ -33,7 +33,7 @@ export default function ChatPage() {
       {/* Left — conversations */}
       <div className="w-80 border-r border-gray-200 flex flex-col shrink-0">
         <div className="p-3 border-b border-gray-100">
-          <SearchInput value={search} onChange={setSearch} placeholder="Buscar conversa..." />
+          <SearchInput value={search} onChange={setSearch} placeholder="Search conversation..." />
         </div>
         <div className="flex-1 overflow-y-auto">
           <ConversationList
@@ -58,7 +58,7 @@ export default function ChatPage() {
             </div>
 
             {/* Messages */}
-            <MessageThread messages={messages} emptyText="Nenhuma mensagem ainda" />
+            <MessageThread messages={messages} emptyText="No messages yet" />
 
             {/* Input */}
             <MessageInput onSend={sendMessage} />
@@ -66,7 +66,7 @@ export default function ChatPage() {
         ) : (
           <div className="flex-1 flex flex-col items-center justify-center text-gray-400">
             <MessageSquare size={48} className="mb-3 text-gray-200" />
-            <p className="text-sm">Selecione uma conversa para comecar</p>
+            <p className="text-sm">Select a conversation to start</p>
           </div>
         )}
       </div>

@@ -12,8 +12,8 @@ import { Input } from '@/components/ui/input';
 import { createClient } from '@/lib/supabase/client';
 
 const loginSchema = z.object({
-  email: z.string().email('Email invalido'),
-  password: z.string().min(6, 'Minimo 6 caracteres'),
+  email: z.string().email('Invalid email'),
+  password: z.string().min(6, 'Minimum 6 characters'),
 });
 
 type LoginForm = z.infer<typeof loginSchema>;
@@ -57,8 +57,8 @@ export default function LoginPage() {
       if (error) {
         setLoginError(
           error.message === 'Invalid login credentials'
-            ? 'Email ou senha incorretos'
-            : 'Erro ao fazer login. Tente novamente.',
+            ? 'Incorrect email or password'
+            : 'Error signing in. Please try again.',
         );
         return;
       }
@@ -66,7 +66,7 @@ export default function LoginPage() {
       router.replace('/dashboard');
       router.refresh();
     } catch {
-      setLoginError('Erro ao fazer login. Tente novamente.');
+      setLoginError('Error signing in. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -82,8 +82,8 @@ export default function LoginPage() {
         <span className="text-xl font-bold text-gray-900">PetCare</span>
       </div>
 
-      <h1 className="text-2xl font-bold text-gray-900">Bem-vindo de volta</h1>
-      <p className="text-gray-500 mt-1 mb-8">Entre na sua conta para acessar o dashboard</p>
+      <h1 className="text-2xl font-bold text-gray-900">Welcome back</h1>
+      <p className="text-gray-500 mt-1 mb-8">Sign in to your account to access the dashboard</p>
 
       {loginError && (
         <div className="mb-4 p-3 rounded-lg bg-red-50 border border-red-200 text-red-700 text-sm">
@@ -97,7 +97,7 @@ export default function LoginPage() {
           <Input
             label="Email"
             type="email"
-            placeholder="seu@email.com"
+            placeholder="your@email.com"
             className="pl-9"
             error={errors.email?.message}
             {...register('email')}
@@ -107,9 +107,9 @@ export default function LoginPage() {
         <div className="relative">
           <Lock size={16} className="absolute left-3 top-9 text-gray-400" />
           <Input
-            label="Senha"
+            label="Password"
             type={showPassword ? 'text' : 'password'}
-            placeholder="Sua senha"
+            placeholder="Your password"
             className="pl-9 pr-10"
             error={errors.password?.message}
             {...register('password')}
@@ -126,15 +126,15 @@ export default function LoginPage() {
         <div className="flex items-center justify-between">
           <label className="flex items-center gap-2 text-sm text-gray-600">
             <input type="checkbox" className="rounded border-gray-300" />
-            Lembrar de mim
+            Remember me
           </label>
           <Link href="/forgot-password" className="text-sm text-blue-600 hover:text-blue-700 font-medium">
-            Esqueceu a senha?
+            Forgot your password?
           </Link>
         </div>
 
         <Button type="submit" className="w-full" isLoading={isSubmitting}>
-          Entrar
+          Sign In
         </Button>
       </form>
 
@@ -144,7 +144,7 @@ export default function LoginPage() {
             <div className="w-full border-t border-gray-200" />
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="px-4 bg-white text-gray-400">ou continue com</span>
+            <span className="px-4 bg-white text-gray-400">or continue with</span>
           </div>
         </div>
 
@@ -177,7 +177,7 @@ export default function LoginPage() {
             <div className="w-full border-t border-gray-200" />
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="px-4 bg-white text-gray-400">ou</span>
+            <span className="px-4 bg-white text-gray-400">or</span>
           </div>
         </div>
 
@@ -196,26 +196,26 @@ export default function LoginPage() {
                 password: '12345678',
               });
               if (error) {
-                setLoginError('Erro ao acessar demo. Tente novamente.');
+                setLoginError('Error accessing demo. Please try again.');
                 return;
               }
               router.replace('/dashboard');
               router.refresh();
             } catch {
-              setLoginError('Erro ao acessar demo. Tente novamente.');
+              setLoginError('Error accessing demo. Please try again.');
             } finally {
               setIsDemoLoading(false);
             }
           }}
         >
-          Ver Demo
+          View Demo
         </Button>
       </div>
 
       <p className="mt-8 text-center text-sm text-gray-500">
-        Nao tem conta?{' '}
+        Don&apos;t have an account?{' '}
         <a href="mailto:contato@petcare.com.br" className="text-blue-600 hover:text-blue-700 font-medium">
-          Fale conosco
+          Contact us
         </a>
       </p>
     </div>

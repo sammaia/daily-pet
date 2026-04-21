@@ -17,10 +17,10 @@ export interface PetRow {
 }
 
 const vaccineConfig = {
-  valid: { label: 'Em dia', variant: 'success' as const },
-  expiring_soon: { label: 'Vencendo', variant: 'warning' as const },
-  expired: { label: 'Vencida', variant: 'danger' as const },
-  missing: { label: 'Pendente', variant: 'neutral' as const },
+  valid: { label: 'Up to date', variant: 'success' as const },
+  expiring_soon: { label: 'Expiring soon', variant: 'warning' as const },
+  expired: { label: 'Expired', variant: 'danger' as const },
+  missing: { label: 'Pending', variant: 'neutral' as const },
 };
 
 interface PetTableProps {
@@ -44,17 +44,17 @@ export function PetTable({ pets, onRowClick }: PetTableProps) {
         </div>
       ),
     },
-    { key: 'age', label: 'Idade' },
-    { key: 'tutorName', label: 'Tutor', sortable: true },
+    { key: 'age', label: 'Age' },
+    { key: 'tutorName', label: 'Owner', sortable: true },
     {
       key: 'vaccineStatus',
-      label: 'Vacinas',
+      label: 'Vaccines',
       render: (row) => {
         const cfg = vaccineConfig[row.vaccineStatus];
         return <Badge variant={cfg.variant} dot>{cfg.label}</Badge>;
       },
     },
-    { key: 'totalBookings', label: 'Agendamentos', sortable: true },
+    { key: 'totalBookings', label: 'Bookings', sortable: true },
   ];
 
   return (
@@ -63,7 +63,7 @@ export function PetTable({ pets, onRowClick }: PetTableProps) {
       data={pets}
       keyExtractor={(r) => r.id}
       onRowClick={onRowClick}
-      emptyMessage="Nenhum pet encontrado"
+      emptyMessage="No pets found"
     />
   );
 }

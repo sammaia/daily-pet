@@ -25,7 +25,7 @@ export function BookingDetailPanel({ booking, onClose }: BookingDetailPanelProps
         <div className="p-6">
           {/* Header */}
           <div className="flex items-center justify-between mb-6">
-            <h3 className="text-lg font-semibold text-gray-900">Detalhes da Reserva</h3>
+            <h3 className="text-lg font-semibold text-gray-900">Booking Details</h3>
             <button onClick={onClose} className="p-1.5 hover:bg-gray-100 rounded-lg">
               <X size={18} className="text-gray-500" />
             </button>
@@ -46,7 +46,7 @@ export function BookingDetailPanel({ booking, onClose }: BookingDetailPanelProps
             <div className="flex items-center gap-3 py-3 border-b border-gray-100">
               <Clock size={16} className="text-gray-400" />
               <div>
-                <p className="text-xs text-gray-500">Turno</p>
+                <p className="text-xs text-gray-500">Shift</p>
                 <p className="text-sm font-medium text-gray-900">{shiftLabels[booking.shift] || booking.shift}</p>
               </div>
             </div>
@@ -54,21 +54,21 @@ export function BookingDetailPanel({ booking, onClose }: BookingDetailPanelProps
               <LogIn size={16} className="text-gray-400" />
               <div>
                 <p className="text-xs text-gray-500">Check-in</p>
-                <p className="text-sm font-medium text-gray-900">{booking.checkInTime || 'Ainda nao realizado'}</p>
+                <p className="text-sm font-medium text-gray-900">{booking.checkInTime || 'Not yet performed'}</p>
               </div>
             </div>
             <div className="flex items-center gap-3 py-3 border-b border-gray-100">
               <LogOut size={16} className="text-gray-400" />
               <div>
                 <p className="text-xs text-gray-500">Check-out</p>
-                <p className="text-sm font-medium text-gray-900">{booking.checkOutTime || 'Ainda nao realizado'}</p>
+                <p className="text-sm font-medium text-gray-900">{booking.checkOutTime || 'Not yet performed'}</p>
               </div>
             </div>
           </div>
 
-          {/* Tutor info */}
+          {/* Owner info */}
           <div className="bg-gray-50 rounded-xl p-4 mb-6">
-            <p className="text-xs text-gray-500 mb-2">Tutor</p>
+            <p className="text-xs text-gray-500 mb-2">Owner</p>
             <div className="flex items-center gap-3">
               <Avatar name={booking.tutorName} size="sm" />
               <div className="flex-1">
@@ -85,7 +85,7 @@ export function BookingDetailPanel({ booking, onClose }: BookingDetailPanelProps
 
           {booking.notes && (
             <div className="mb-6">
-              <p className="text-xs text-gray-500 mb-1">Observacoes</p>
+              <p className="text-xs text-gray-500 mb-1">Notes</p>
               <p className="text-sm text-gray-700 bg-amber-50 border border-amber-100 rounded-lg p-3">{booking.notes}</p>
             </div>
           )}
@@ -94,16 +94,16 @@ export function BookingDetailPanel({ booking, onClose }: BookingDetailPanelProps
           <div className="flex gap-3">
             {booking.status === 'confirmed' && (
               <Button className="flex-1 gap-2">
-                <LogIn size={16} /> Fazer Check-in
+                <LogIn size={16} /> Check In
               </Button>
             )}
             {booking.status === 'checked_in' && (
               <Button variant="secondary" className="flex-1 gap-2">
-                <LogOut size={16} /> Fazer Check-out
+                <LogOut size={16} /> Check Out
               </Button>
             )}
             <Button variant="outline" className="flex-1">
-              Editar Reserva
+              Edit Booking
             </Button>
           </div>
         </div>

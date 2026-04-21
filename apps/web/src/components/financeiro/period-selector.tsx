@@ -10,10 +10,10 @@ interface PeriodSelectorProps {
 }
 
 const periods = [
-  { value: '7d', label: '7 dias' },
-  { value: '30d', label: '30 dias' },
-  { value: '90d', label: '3 meses' },
-  { value: '12m', label: '12 meses' },
+  { value: '7d', label: '7 days' },
+  { value: '30d', label: '30 days' },
+  { value: '90d', label: '3 months' },
+  { value: '12m', label: '12 months' },
 ];
 
 export function PeriodSelector({ value, onChange, className }: PeriodSelectorProps) {

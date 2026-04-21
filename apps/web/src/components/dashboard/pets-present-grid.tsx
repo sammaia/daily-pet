@@ -26,9 +26,9 @@ export function PetsPresentGrid() {
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-5">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="font-semibold text-gray-800">Pets na Creche</h3>
+        <h3 className="font-semibold text-gray-800">Pets at Daycare</h3>
         <span className="text-sm font-medium text-amber-600 bg-amber-50 px-2.5 py-0.5 rounded-full">
-          {mockPetsPresent.length} presentes
+          {mockPetsPresent.length} present
         </span>
       </div>
       <div className="flex flex-wrap gap-3">

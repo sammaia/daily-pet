@@ -16,10 +16,10 @@ interface PetCardProps {
 }
 
 const vaccineConfig = {
-  valid: { label: 'Vacinas em dia', variant: 'success' as const },
-  expiring_soon: { label: 'Vencendo', variant: 'warning' as const },
-  expired: { label: 'Vencida', variant: 'danger' as const },
-  missing: { label: 'Pendente', variant: 'neutral' as const },
+  valid: { label: 'Vaccines up to date', variant: 'success' as const },
+  expiring_soon: { label: 'Expiring soon', variant: 'warning' as const },
+  expired: { label: 'Expired', variant: 'danger' as const },
+  missing: { label: 'Pending', variant: 'neutral' as const },
 };
 
 export function PetCard({ id, name, breed, age, tutorName, avatar, vaccineStatus, isActive }: PetCardProps) {
@@ -41,7 +41,7 @@ export function PetCard({ id, name, breed, age, tutorName, avatar, vaccineStatus
         <div className="flex-1 min-w-0">
           <h4 className="font-semibold text-gray-900 truncate">{name}</h4>
           <p className="text-sm text-gray-500 truncate">{breed} — {age}</p>
-          <p className="text-xs text-gray-400 mt-1">Tutor: {tutorName}</p>
+          <p className="text-xs text-gray-400 mt-1">Owner: {tutorName}</p>
           <Badge variant={vCfg.variant} dot size="sm" className="mt-2">
             {vCfg.label}
           </Badge>

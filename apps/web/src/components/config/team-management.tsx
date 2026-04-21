@@ -18,9 +18,9 @@ interface TeamMember {
 }
 
 const roleLabels: Record<string, { label: string; variant: 'info' | 'amber' | 'success' }> = {
-  owner: { label: 'Proprietario', variant: 'amber' },
-  admin: { label: 'Administrador', variant: 'info' },
-  caregiver: { label: 'Cuidador', variant: 'success' },
+  owner: { label: 'Owner', variant: 'amber' },
+  admin: { label: 'Administrator', variant: 'info' },
+  caregiver: { label: 'Caregiver', variant: 'success' },
 };
 
 const mockTeam: TeamMember[] = [
@@ -38,11 +38,11 @@ export function TeamManagement() {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h3 className="font-semibold text-gray-800 mb-1">Equipe</h3>
-          <p className="text-sm text-gray-500">Gerencie membros e permissoes</p>
+          <h3 className="font-semibold text-gray-800 mb-1">Team</h3>
+          <p className="text-sm text-gray-500">Manage members and permissions</p>
         </div>
         <Button size="sm" onClick={() => setShowInvite(true)} className="gap-1.5">
-          <Plus size={14} /> Convidar
+          <Plus size={14} /> Invite
         </Button>
       </div>
 
@@ -55,7 +55,7 @@ export function TeamManagement() {
               <div className="flex-1 min-w-0">
                 <div className="flex items-center gap-2">
                   <p className="text-sm font-medium text-gray-900">{member.name}</p>
-                  {member.status === 'pending' && <Badge variant="warning" size="sm">Pendente</Badge>}
+                  {member.status === 'pending' && <Badge variant="warning" size="sm">Pending</Badge>}
                 </div>
                 <p className="text-xs text-gray-500">{member.email}</p>
               </div>
@@ -71,20 +71,20 @@ export function TeamManagement() {
       </div>
 
       {/* Invite modal */}
-      <Modal open={showInvite} onClose={() => setShowInvite(false)} title="Convidar Membro">
+      <Modal open={showInvite} onClose={() => setShowInvite(false)} title="Invite Member">
         <div className="space-y-4">
-          <Input label="Email" type="email" placeholder="email@exemplo.com" />
+          <Input label="Email" type="email" placeholder="email@example.com" />
           <Select
-            label="Funcao"
+            label="Role"
             options={[
-              { value: 'admin', label: 'Administrador' },
-              { value: 'caregiver', label: 'Cuidador' },
+              { value: 'admin', label: 'Administrator' },
+              { value: 'caregiver', label: 'Caregiver' },
             ]}
-            placeholder="Selecione a funcao"
+            placeholder="Select a role"
           />
           <div className="flex justify-end gap-3 pt-2">
-            <Button variant="outline" onClick={() => setShowInvite(false)}>Cancelar</Button>
-            <Button className="gap-1.5"><Mail size={14} /> Enviar Convite</Button>
+            <Button variant="outline" onClick={() => setShowInvite(false)}>Cancel</Button>
+            <Button className="gap-1.5"><Mail size={14} /> Send Invite</Button>
           </div>
         </div>
       </Modal>

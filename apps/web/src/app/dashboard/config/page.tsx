@@ -11,12 +11,12 @@ import { PlansManagement } from '@/components/config/plans-management';
 import { AccountSettings } from '@/components/config/account-settings';
 
 const sections = [
-  { id: 'creche', label: 'Dados da Creche', icon: Building2 },
-  { id: 'hours', label: 'Horarios', icon: Clock },
-  { id: 'team', label: 'Equipe', icon: Users },
-  { id: 'vaccines', label: 'Vacinas', icon: Syringe },
-  { id: 'plans', label: 'Planos', icon: CreditCard },
-  { id: 'account', label: 'Minha Conta', icon: User },
+  { id: 'creche', label: 'Daycare Info', icon: Building2 },
+  { id: 'hours', label: 'Hours', icon: Clock },
+  { id: 'team', label: 'Team', icon: Users },
+  { id: 'vaccines', label: 'Vaccines', icon: Syringe },
+  { id: 'plans', label: 'Plans', icon: CreditCard },
+  { id: 'account', label: 'My Account', icon: User },
 ];
 
 export default function ConfigPage() {

@@ -11,11 +11,11 @@ import { ReportView } from '@/components/boletins/report-view';
 import { EmptyState } from '@/components/ui/empty-state';
 
 const mockPending = [
-  { petName: 'Luna', petBreed: 'Border Collie', shift: 'Manha', checkInTime: '07:30' },
-  { petName: 'Bob', petBreed: 'Bulldog Frances', shift: 'Integral', checkInTime: '08:00' },
-  { petName: 'Mel', petBreed: 'Poodle', shift: 'Integral', checkInTime: '08:15' },
-  { petName: 'Bella', petBreed: 'Beagle', shift: 'Tarde', checkInTime: '13:10' },
-  { petName: 'Max', petBreed: 'Pastor Alemao', shift: 'Integral', checkInTime: '07:50' },
+  { petName: 'Luna', petBreed: 'Border Collie', shift: 'Morning', checkInTime: '07:30' },
+  { petName: 'Bob', petBreed: 'French Bulldog', shift: 'Full Day', checkInTime: '08:00' },
+  { petName: 'Mel', petBreed: 'Poodle', shift: 'Full Day', checkInTime: '08:15' },
+  { petName: 'Bella', petBreed: 'Beagle', shift: 'Afternoon', checkInTime: '13:10' },
+  { petName: 'Max', petBreed: 'German Shepherd', shift: 'Full Day', checkInTime: '07:50' },
 ];
 
 const mockTodayReports: ReportRow[] = [
@@ -34,9 +34,9 @@ const mockAllReports: ReportRow[] = [
 ];
 
 const tabList = [
-  { id: 'pending', label: 'Pendentes', count: mockPending.length },
-  { id: 'today', label: 'Hoje', count: mockTodayReports.length },
-  { id: 'all', label: 'Todos' },
+  { id: 'pending', label: 'Pending', count: mockPending.length },
+  { id: 'today', label: 'Today', count: mockTodayReports.length },
+  { id: 'all', label: 'All' },
 ];
 
 export default function BoletinsPage() {
@@ -64,7 +64,7 @@ export default function BoletinsPage() {
           <SearchInput
             value={search}
             onChange={setSearch}
-            placeholder="Buscar por pet ou cuidador..."
+            placeholder="Search by pet or caregiver..."
             className="sm:w-64"
           />
         )}
@@ -76,8 +76,8 @@ export default function BoletinsPage() {
           {mockPending.length === 0 ? (
             <EmptyState
               icon={<FileText size={48} />}
-              title="Todos os boletins estao em dia!"
-              description="Nenhum pet aguardando avaliacao hoje."
+              title="All report cards are up to date!"
+              description="No pets awaiting evaluation today."
             />
           ) : (
             mockPending.map((p) => (
@@ -96,8 +96,8 @@ export default function BoletinsPage() {
           {mockTodayReports.length === 0 ? (
             <EmptyState
               icon={<FileText size={48} />}
-              title="Nenhum boletim criado hoje"
-              description="Comece avaliando os pets na aba Pendentes."
+              title="No report cards created today"
+              description="Start evaluating pets in the Pending tab."
             />
           ) : (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

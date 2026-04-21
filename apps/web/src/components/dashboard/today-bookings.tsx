@@ -20,20 +20,20 @@ interface Booking {
 }
 
 const mockBookings: Booking[] = [
-  { id: '1', petName: 'Thor', petBreed: 'Golden Retriever', tutorName: 'Joao Silva', shift: 'Integral', status: 'checked_in', checkInTime: '07:45' },
-  { id: '2', petName: 'Luna', petBreed: 'Border Collie', tutorName: 'Ana Costa', shift: 'Manha', status: 'confirmed' },
-  { id: '3', petName: 'Bob', petBreed: 'Bulldog Frances', tutorName: 'Pedro Santos', shift: 'Integral', status: 'confirmed' },
-  { id: '4', petName: 'Mel', petBreed: 'Poodle', tutorName: 'Carla Lima', shift: 'Tarde', status: 'pending' },
-  { id: '5', petName: 'Rex', petBreed: 'Labrador', tutorName: 'Lucas Rocha', shift: 'Integral', status: 'checked_in', checkInTime: '08:10' },
-  { id: '6', petName: 'Nina', petBreed: 'Shih Tzu', tutorName: 'Mariana Alves', shift: 'Manha', status: 'checked_in', checkInTime: '08:30' },
+  { id: '1', petName: 'Thor', petBreed: 'Golden Retriever', tutorName: 'Joao Silva', shift: 'Full Day', status: 'checked_in', checkInTime: '07:45' },
+  { id: '2', petName: 'Luna', petBreed: 'Border Collie', tutorName: 'Ana Costa', shift: 'Morning', status: 'confirmed' },
+  { id: '3', petName: 'Bob', petBreed: 'French Bulldog', tutorName: 'Pedro Santos', shift: 'Full Day', status: 'confirmed' },
+  { id: '4', petName: 'Mel', petBreed: 'Poodle', tutorName: 'Carla Lima', shift: 'Afternoon', status: 'pending' },
+  { id: '5', petName: 'Rex', petBreed: 'Labrador', tutorName: 'Lucas Rocha', shift: 'Full Day', status: 'checked_in', checkInTime: '08:10' },
+  { id: '6', petName: 'Nina', petBreed: 'Shih Tzu', tutorName: 'Mariana Alves', shift: 'Morning', status: 'checked_in', checkInTime: '08:30' },
 ];
 
 export function TodayBookings() {
   return (
     <div className="bg-white rounded-xl border border-gray-200">
       <div className="px-5 py-4 border-b border-gray-100 flex items-center justify-between">
-        <h3 className="font-semibold text-gray-800">Agendamentos de Hoje</h3>
-        <span className="text-xs text-gray-400">{mockBookings.length} reservas</span>
+        <h3 className="font-semibold text-gray-800">Today&apos;s Bookings</h3>
+        <span className="text-xs text-gray-400">{mockBookings.length} bookings</span>
       </div>
       <div className="divide-y divide-gray-100 max-h-[400px] overflow-y-auto">
         {mockBookings.map((b) => {

@@ -52,8 +52,8 @@ export function ImageUpload({ value, onChange, label, className }: ImageUploadPr
           )}
         >
           <Upload size={24} className="mx-auto mb-2 text-gray-400" />
-          <p className="text-sm text-gray-600">Clique ou arraste uma imagem</p>
-          <p className="text-xs text-gray-400 mt-1">PNG, JPG ate 5MB</p>
+          <p className="text-sm text-gray-600">Click or drag an image here</p>
+          <p className="text-xs text-gray-400 mt-1">PNG, JPG up to 5MB</p>
         </div>
       )}
       <input

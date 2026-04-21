@@ -16,10 +16,10 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
 
         <div>
           <h2 className="text-4xl font-bold leading-tight mb-4">
-            Gerencie sua creche canina com facilidade
+            Manage your dog daycare with ease
           </h2>
           <p className="text-gray-400 text-lg leading-relaxed">
-            Agendamentos, boletins diarios, financeiro e comunicacao com tutores — tudo em um so lugar.
+            Bookings, daily report cards, financials and communication with pet owners — all in one place.
           </p>
         </div>
 
@@ -34,7 +34,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
               </div>
             ))}
           </div>
-          <p className="text-gray-400 text-sm">+200 creches ja confiam no PetCare</p>
+          <p className="text-gray-400 text-sm">+200 daycares already trust PetCare</p>
         </div>
       </div>
 

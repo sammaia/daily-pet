@@ -15,11 +15,11 @@ export default function DashboardError({
       <div className="bg-red-50 rounded-full p-4">
         <AlertTriangle size={32} className="text-red-500" />
       </div>
-      <h2 className="text-lg font-semibold text-gray-900">Algo deu errado</h2>
+      <h2 className="text-lg font-semibold text-gray-900">Something went wrong</h2>
       <p className="text-sm text-gray-500 text-center max-w-md">
-        Ocorreu um erro ao carregar esta pagina. Tente novamente ou entre em contato com o suporte.
+        An error occurred while loading this page. Please try again or contact support.
       </p>
-      <Button onClick={reset}>Tentar novamente</Button>
+      <Button onClick={reset}>Try again</Button>
     </div>
   );
 }

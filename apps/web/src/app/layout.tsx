@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "PetCare — Gestao de Creche Canina",
-  description: "Plataforma completa para gerenciamento de creches caninas",
+  title: "PetCare — Dog Daycare Management",
+  description: "Complete platform for managing dog daycares",
 };
 
 export default function RootLayout({

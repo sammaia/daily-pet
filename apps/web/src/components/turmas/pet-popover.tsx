@@ -15,9 +15,9 @@ interface PetPopoverProps {
 }
 
 const statusConfig = {
-  valid: { label: 'Vacinas OK', variant: 'success' as const },
-  expiring_soon: { label: 'Vencendo', variant: 'warning' as const },
-  expired: { label: 'Vencida', variant: 'danger' as const },
+  valid: { label: 'Vaccines OK', variant: 'success' as const },
+  expiring_soon: { label: 'Expiring soon', variant: 'warning' as const },
+  expired: { label: 'Expired', variant: 'danger' as const },
 };
 
 export function PetPopover({ name, breed, tutorName, vaccineStatus, notes, children }: PetPopoverProps) {
@@ -37,7 +37,7 @@ export function PetPopover({ name, breed, tutorName, vaccineStatus, notes, child
             </div>
           </div>
           <div className="space-y-1.5 text-xs">
-            <p className="text-gray-500">Tutor: <span className="text-gray-700 font-medium">{tutorName}</span></p>
+            <p className="text-gray-500">Owner: <span className="text-gray-700 font-medium">{tutorName}</span></p>
             <Badge variant={cfg.variant} dot size="sm">{cfg.label}</Badge>
             {notes && <p className="text-gray-500 mt-2 pt-2 border-t border-gray-100">{notes}</p>}
           </div>

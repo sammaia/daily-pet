@@ -10,9 +10,9 @@ interface Alert {
 }
 
 const mockAlerts: Alert[] = [
-  { id: '1', type: 'vaccine', message: 'Vacinas vencendo em 7 dias', count: 3 },
-  { id: '2', type: 'report', message: 'Boletins pendentes de ontem', count: 2 },
-  { id: '3', type: 'payment', message: 'Faturas atrasadas', count: 1 },
+  { id: '1', type: 'vaccine', message: 'Vaccines expiring in 7 days', count: 3 },
+  { id: '2', type: 'report', message: 'Report cards pending from yesterday', count: 2 },
+  { id: '3', type: 'payment', message: 'Overdue invoices', count: 1 },
 ];
 
 const alertConfig = {
@@ -28,7 +28,7 @@ export function AlertsPanel() {
     <div className="bg-white rounded-xl border border-gray-200 p-5">
       <div className="flex items-center gap-2 mb-4">
         <AlertTriangle size={16} className="text-amber-500" />
-        <h3 className="font-semibold text-gray-800">Alertas</h3>
+        <h3 className="font-semibold text-gray-800">Alerts</h3>
       </div>
       <div className="space-y-2.5">
         {mockAlerts.map((alert) => {

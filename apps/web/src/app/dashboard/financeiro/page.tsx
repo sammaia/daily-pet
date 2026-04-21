@@ -13,24 +13,24 @@ import { formatCurrency } from '@/lib/utils/format';
 
 const mockRevenueData = [
   { label: 'Jan', revenue: 8200, expense: 3200 },
-  { label: 'Fev', revenue: 9500, expense: 3100 },
+  { label: 'Feb', revenue: 9500, expense: 3100 },
   { label: 'Mar', revenue: 11200, expense: 3800 },
-  { label: 'Abr', revenue: 10800, expense: 3500 },
-  { label: 'Mai', revenue: 12100, expense: 3900 },
+  { label: 'Apr', revenue: 10800, expense: 3500 },
+  { label: 'May', revenue: 12100, expense: 3900 },
   { label: 'Jun', revenue: 11800, expense: 3700 },
   { label: 'Jul', revenue: 13500, expense: 4100 },
-  { label: 'Ago', revenue: 14200, expense: 4300 },
-  { label: 'Set', revenue: 13800, expense: 4000 },
-  { label: 'Out', revenue: 15100, expense: 4500 },
+  { label: 'Aug', revenue: 14200, expense: 4300 },
+  { label: 'Sep', revenue: 13800, expense: 4000 },
+  { label: 'Oct', revenue: 15100, expense: 4500 },
   { label: 'Nov', revenue: 14500, expense: 4200 },
-  { label: 'Dez', revenue: 12450, expense: 3800 },
+  { label: 'Dec', revenue: 12450, expense: 3800 },
 ];
 
 const mockPaymentMethods = [
   { method: 'Pix', value: 7200, color: '#10b981' },
-  { method: 'Cartao de Credito', value: 3500, color: '#3b82f6' },
-  { method: 'Boleto', value: 1200, color: '#f59e0b' },
-  { method: 'Debito', value: 550, color: '#8b5cf6' },
+  { method: 'Credit Card', value: 3500, color: '#3b82f6' },
+  { method: 'Bank Slip', value: 1200, color: '#f59e0b' },
+  { method: 'Debit Card', value: 550, color: '#8b5cf6' },
 ];
 
 const mockInvoices: InvoiceRow[] = [
@@ -45,17 +45,17 @@ const mockInvoices: InvoiceRow[] = [
 ];
 
 const mockSubscriptions: SubscriptionRow[] = [
-  { id: '1', tutorName: 'Joao Silva', planName: 'Integral 20 dias', amount: 899, status: 'active', nextBilling: '2026-03-01' },
-  { id: '2', tutorName: 'Ana Costa', planName: 'Manha 15 dias', amount: 599, status: 'active', nextBilling: '2026-03-05' },
-  { id: '3', tutorName: 'Lucas Rocha', planName: 'Integral 20 dias', amount: 899, status: 'active', nextBilling: '2026-03-01' },
-  { id: '4', tutorName: 'Pedro Santos', planName: 'Avulso', amount: 0, status: 'paused', nextBilling: '2026-03-15' },
-  { id: '5', tutorName: 'Mariana Alves', planName: 'Manha 10 dias', amount: 420, status: 'active', nextBilling: '2026-03-10' },
+  { id: '1', tutorName: 'Joao Silva', planName: 'Full Day 20 days', amount: 899, status: 'active', nextBilling: '2026-03-01' },
+  { id: '2', tutorName: 'Ana Costa', planName: 'Morning 15 days', amount: 599, status: 'active', nextBilling: '2026-03-05' },
+  { id: '3', tutorName: 'Lucas Rocha', planName: 'Full Day 20 days', amount: 899, status: 'active', nextBilling: '2026-03-01' },
+  { id: '4', tutorName: 'Pedro Santos', planName: 'Drop-in', amount: 0, status: 'paused', nextBilling: '2026-03-15' },
+  { id: '5', tutorName: 'Mariana Alves', planName: 'Morning 10 days', amount: 420, status: 'active', nextBilling: '2026-03-10' },
 ];
 
 const tabList = [
-  { id: 'overview', label: 'Visao Geral' },
-  { id: 'invoices', label: 'Faturas', count: mockInvoices.length },
-  { id: 'subscriptions', label: 'Assinaturas', count: mockSubscriptions.length },
+  { id: 'overview', label: 'Overview' },
+  { id: 'invoices', label: 'Invoices', count: mockInvoices.length },
+  { id: 'subscriptions', label: 'Subscriptions', count: mockSubscriptions.length },
 ];
 
 export default function FinanceiroPage() {
@@ -75,31 +75,31 @@ export default function FinanceiroPage() {
           {/* KPIs */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <StatCard
-              label="Receita do Mes"
+              label="Monthly Revenue"
               value={formatCurrency(12450)}
               icon={<DollarSign size={20} />}
               iconBg="bg-emerald-100 text-emerald-600"
-              trend={{ value: 12, label: 'vs mes anterior' }}
+              trend={{ value: 12, label: 'vs last month' }}
             />
             <StatCard
-              label="Ticket Medio"
+              label="Average Ticket"
               value={formatCurrency(380)}
               icon={<TrendingUp size={20} />}
               iconBg="bg-blue-100 text-blue-600"
-              trend={{ value: 5, label: 'vs mes anterior' }}
+              trend={{ value: 5, label: 'vs last month' }}
             />
             <StatCard
-              label="Faturas Pendentes"
+              label="Pending Invoices"
               value={2}
               icon={<Receipt size={20} />}
               iconBg="bg-amber-100 text-amber-600"
             />
             <StatCard
-              label="Inadimplencia"
+              label="Delinquency Rate"
               value="3.2%"
               icon={<CreditCard size={20} />}
               iconBg="bg-red-100 text-red-600"
-              trend={{ value: -1.5, label: 'vs mes anterior' }}
+              trend={{ value: -1.5, label: 'vs last month' }}
             />
           </div>
 
@@ -113,7 +113,7 @@ export default function FinanceiroPage() {
 
           {/* Recent invoices */}
           <div>
-            <h3 className="font-semibold text-gray-800 mb-3">Faturas Recentes</h3>
+            <h3 className="font-semibold text-gray-800 mb-3">Recent Invoices</h3>
             <InvoicesTable invoices={mockInvoices.slice(0, 5)} />
           </div>
         </>

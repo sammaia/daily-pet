@@ -6,13 +6,13 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
 const daysOfWeek = [
-  { key: 'monday', label: 'Segunda-feira' },
-  { key: 'tuesday', label: 'Terca-feira' },
-  { key: 'wednesday', label: 'Quarta-feira' },
-  { key: 'thursday', label: 'Quinta-feira' },
-  { key: 'friday', label: 'Sexta-feira' },
-  { key: 'saturday', label: 'Sabado' },
-  { key: 'sunday', label: 'Domingo' },
+  { key: 'monday', label: 'Monday' },
+  { key: 'tuesday', label: 'Tuesday' },
+  { key: 'wednesday', label: 'Wednesday' },
+  { key: 'thursday', label: 'Thursday' },
+  { key: 'friday', label: 'Friday' },
+  { key: 'saturday', label: 'Saturday' },
+  { key: 'sunday', label: 'Sunday' },
 ];
 
 interface DaySchedule {
@@ -39,8 +39,8 @@ export function OperatingHours() {
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="font-semibold text-gray-800 mb-1">Horario de Funcionamento</h3>
-        <p className="text-sm text-gray-500">Configure os horarios de operacao por dia da semana</p>
+        <h3 className="font-semibold text-gray-800 mb-1">Operating Hours</h3>
+        <p className="text-sm text-gray-500">Configure operating hours per day of the week</p>
       </div>
 
       <div className="space-y-3">
@@ -66,7 +66,7 @@ export function OperatingHours() {
                     onChange={(e) => updateDay(day.key, { open: e.target.value })}
                     className="!w-32"
                   />
-                  <span className="text-gray-400">ate</span>
+                  <span className="text-gray-400">to</span>
                   <Input
                     type="time"
                     value={s.close}
@@ -75,7 +75,7 @@ export function OperatingHours() {
                   />
                 </div>
               ) : (
-                <span className="text-sm text-gray-400">Fechado</span>
+                <span className="text-sm text-gray-400">Closed</span>
               )}
             </div>
           );
@@ -83,7 +83,7 @@ export function OperatingHours() {
       </div>
 
       <div className="flex justify-end">
-        <Button>Salvar Horarios</Button>
+        <Button>Save Hours</Button>
       </div>
     </div>
   );

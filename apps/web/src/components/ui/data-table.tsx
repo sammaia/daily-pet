@@ -28,7 +28,7 @@ export function DataTable<T>({
   data,
   keyExtractor,
   pageSize = 10,
-  emptyMessage = 'Nenhum registro encontrado',
+  emptyMessage = 'No records found',
   onRowClick,
   isLoading = false,
   className,

@@ -32,7 +32,7 @@ export function ShiftGroup({ shiftLabel, timeRange, color, pets, capacity }: Shi
       </div>
       <div className="p-5">
         {pets.length === 0 ? (
-          <p className="text-sm text-gray-400 text-center py-4">Nenhum pet neste turno</p>
+          <p className="text-sm text-gray-400 text-center py-4">No pets in this shift</p>
         ) : (
           <div className="flex flex-wrap gap-4">
             {pets.map((pet) => (

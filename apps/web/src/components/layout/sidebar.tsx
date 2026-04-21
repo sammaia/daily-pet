@@ -21,14 +21,14 @@ import { cn } from '@/lib/utils/cn';
 import { useAuth } from '@/hooks/use-auth';
 
 const navItems = [
-  { href: '/dashboard', label: 'Visao do Dia', icon: Home },
-  { href: '/dashboard/agendamentos', label: 'Agendamentos', icon: Calendar, badge: 3 },
+  { href: '/dashboard', label: 'Day Overview', icon: Home },
+  { href: '/dashboard/agendamentos', label: 'Bookings', icon: Calendar, badge: 3 },
   { href: '/dashboard/pets', label: 'Pets', icon: DogIcon },
-  { href: '/dashboard/boletins', label: 'Boletim Diario', icon: FileText, badge: 5 },
-  { href: '/dashboard/turmas', label: 'Turmas', icon: Layers },
-  { href: '/dashboard/financeiro', label: 'Financeiro', icon: BarChart3 },
+  { href: '/dashboard/boletins', label: 'Report Cards', icon: FileText, badge: 5 },
+  { href: '/dashboard/turmas', label: 'Groups', icon: Layers },
+  { href: '/dashboard/financeiro', label: 'Financials', icon: BarChart3 },
   { href: '/dashboard/chat', label: 'Chat', icon: MessageSquare, badge: 2 },
-  { href: '/dashboard/config', label: 'Configuracoes', icon: Settings },
+  { href: '/dashboard/config', label: 'Settings', icon: Settings },
 ];
 
 export function Sidebar() {
@@ -61,7 +61,7 @@ export function Sidebar() {
             </div>
             <div>
               <h1 className="text-lg font-bold leading-tight">PetCare</h1>
-              <p className="text-[11px] text-gray-500 leading-tight">Creche Patinhas Felizes</p>
+              <p className="text-[11px] text-gray-500 leading-tight">Happy Paws Daycare</p>
             </div>
           </div>
         </div>
@@ -111,7 +111,7 @@ export function Sidebar() {
             </div>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-medium text-gray-200 truncate">{displayName}</p>
-              <p className="text-[11px] text-gray-500 truncate">Administradora</p>
+              <p className="text-[11px] text-gray-500 truncate">Administrator</p>
             </div>
             <button onClick={signOut} className="text-gray-500 hover:text-gray-300 transition-colors">
               <LogOut size={16} />

@@ -26,7 +26,7 @@ export function InvoicesTable({ invoices }: InvoicesTableProps) {
   const columns: Column<InvoiceRow>[] = [
     {
       key: 'tutorName',
-      label: 'Tutor / Pet',
+      label: 'Owner / Pet',
       sortable: true,
       render: (row) => (
         <div className="flex items-center gap-2">
@@ -40,13 +40,13 @@ export function InvoicesTable({ invoices }: InvoicesTableProps) {
     },
     {
       key: 'amount',
-      label: 'Valor',
+      label: 'Amount',
       sortable: true,
       render: (row) => <span className="font-medium">{formatCurrency(row.amount)}</span>,
     },
     {
       key: 'method',
-      label: 'Metodo',
+      label: 'Method',
       render: (row) => <span className="text-sm">{paymentMethodLabels[row.method] || row.method}</span>,
     },
     {
@@ -59,13 +59,13 @@ export function InvoicesTable({ invoices }: InvoicesTableProps) {
     },
     {
       key: 'dueDate',
-      label: 'Vencimento',
+      label: 'Due Date',
       sortable: true,
       render: (row) => <span className="text-sm">{formatDateShort(row.dueDate)}</span>,
     },
     {
       key: 'paidDate',
-      label: 'Pagamento',
+      label: 'Paid On',
       render: (row) => <span className="text-sm text-gray-500">{row.paidDate ? formatDateShort(row.paidDate) : '—'}</span>,
     },
   ];
@@ -75,7 +75,7 @@ export function InvoicesTable({ invoices }: InvoicesTableProps) {
       columns={columns}
       data={invoices}
       keyExtractor={(r) => r.id}
-      emptyMessage="Nenhuma fatura encontrada"
+      emptyMessage="No invoices found"
     />
   );
 }

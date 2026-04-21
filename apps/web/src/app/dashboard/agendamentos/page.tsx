@@ -12,13 +12,13 @@ import { BookingDetailPanel } from '@/components/agendamentos/booking-detail-pan
 import { cn } from '@/lib/utils/cn';
 
 const mockBookings: BookingRow[] = [
-  { id: '1', petName: 'Thor', petBreed: 'Golden Retriever', tutorName: 'Joao Silva', shift: 'full_day', status: 'checked_in', checkInTime: '07:45', notes: 'Trocar racao por comida natural' },
+  { id: '1', petName: 'Thor', petBreed: 'Golden Retriever', tutorName: 'Joao Silva', shift: 'full_day', status: 'checked_in', checkInTime: '07:45', notes: 'Switch to natural food instead of kibble' },
   { id: '2', petName: 'Luna', petBreed: 'Border Collie', tutorName: 'Ana Costa', shift: 'morning', status: 'confirmed' },
-  { id: '3', petName: 'Bob', petBreed: 'Bulldog Frances', tutorName: 'Pedro Santos', shift: 'full_day', status: 'confirmed' },
+  { id: '3', petName: 'Bob', petBreed: 'French Bulldog', tutorName: 'Pedro Santos', shift: 'full_day', status: 'confirmed' },
   { id: '4', petName: 'Mel', petBreed: 'Poodle', tutorName: 'Carla Lima', shift: 'afternoon', status: 'pending' },
   { id: '5', petName: 'Rex', petBreed: 'Labrador', tutorName: 'Lucas Rocha', shift: 'full_day', status: 'checked_in', checkInTime: '08:10' },
   { id: '6', petName: 'Nina', petBreed: 'Shih Tzu', tutorName: 'Mariana Alves', shift: 'morning', status: 'checked_in', checkInTime: '08:30' },
-  { id: '7', petName: 'Max', petBreed: 'Pastor Alemao', tutorName: 'Roberto Dias', shift: 'full_day', status: 'cancelled' },
+  { id: '7', petName: 'Max', petBreed: 'German Shepherd', tutorName: 'Roberto Dias', shift: 'full_day', status: 'cancelled' },
   { id: '8', petName: 'Bella', petBreed: 'Beagle', tutorName: 'Juliana Martins', shift: 'afternoon', status: 'confirmed' },
 ];
 
@@ -47,11 +47,11 @@ export default function AgendamentosPage() {
         <SearchInput
           value={search}
           onChange={setSearch}
-          placeholder="Buscar por pet ou tutor..."
+          placeholder="Search by pet or owner..."
           className="sm:w-72"
         />
         <Button onClick={() => setShowModal(true)} className="gap-2 shrink-0">
-          <Plus size={16} /> Novo Agendamento
+          <Plus size={16} /> New Booking
         </Button>
       </div>
 
@@ -67,12 +67,12 @@ export default function AgendamentosPage() {
             <AvailabilityMeter used={12} total={20} />
           </div>
           <div className="bg-white rounded-xl border border-gray-200 p-4">
-            <h4 className="text-sm font-semibold text-gray-700 mb-3">Resumo do Dia</h4>
+            <h4 className="text-sm font-semibold text-gray-700 mb-3">Day Summary</h4>
             <div className="space-y-2">
               {[
-                { label: 'Manha', count: 3, color: 'bg-sky-500' },
-                { label: 'Tarde', count: 2, color: 'bg-amber-500' },
-                { label: 'Integral', count: 5, color: 'bg-emerald-500' },
+                { label: 'Morning', count: 3, color: 'bg-sky-500' },
+                { label: 'Afternoon', count: 2, color: 'bg-amber-500' },
+                { label: 'Full Day', count: 5, color: 'bg-emerald-500' },
               ].map((s) => (
                 <div key={s.label} className="flex items-center justify-between text-sm">
                   <div className="flex items-center gap-2">

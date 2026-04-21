@@ -21,13 +21,13 @@ export function PetHistoryTab({ bookings }: PetHistoryTabProps) {
   const columns: Column<BookingHistory>[] = [
     {
       key: 'date',
-      label: 'Data',
+      label: 'Date',
       sortable: true,
       render: (row) => <span className="font-medium">{formatDateShort(row.date)}</span>,
     },
     {
       key: 'shift',
-      label: 'Turno',
+      label: 'Shift',
       render: (row) => <span>{shiftLabels[row.shift] || row.shift}</span>,
     },
     {
@@ -55,7 +55,7 @@ export function PetHistoryTab({ bookings }: PetHistoryTabProps) {
       columns={columns}
       data={bookings}
       keyExtractor={(r) => r.id}
-      emptyMessage="Nenhum agendamento encontrado"
+      emptyMessage="No bookings found"
     />
   );
 }

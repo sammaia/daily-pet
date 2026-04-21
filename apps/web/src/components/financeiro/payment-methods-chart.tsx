@@ -13,7 +13,7 @@ export function PaymentMethodsChart({ data }: PaymentMethodsChartProps) {
 
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-5">
-      <h3 className="font-semibold text-gray-800 mb-4">Metodos de Pagamento</h3>
+      <h3 className="font-semibold text-gray-800 mb-4">Payment Methods</h3>
       <div className="flex items-center gap-6">
         <div className="h-40 w-40 shrink-0">
           <ResponsiveContainer width="100%" height="100%">

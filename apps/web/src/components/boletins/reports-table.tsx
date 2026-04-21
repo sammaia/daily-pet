@@ -38,32 +38,32 @@ export function ReportsTable({ reports, onRowClick }: ReportsTableProps) {
     },
     {
       key: 'date',
-      label: 'Data',
+      label: 'Date',
       sortable: true,
       render: (row) => <span>{formatDateShort(row.date)}</span>,
     },
     {
       key: 'feeding',
-      label: 'Alim.',
+      label: 'Feed.',
       render: (row) => <ScoreDisplay score={row.feeding} variant="dots" size="sm" />,
     },
     {
       key: 'behavior',
-      label: 'Comp.',
+      label: 'Beh.',
       render: (row) => <ScoreDisplay score={row.behavior} variant="dots" size="sm" />,
     },
     {
       key: 'socialization',
-      label: 'Social.',
+      label: 'Soc.',
       render: (row) => <ScoreDisplay score={row.socialization} variant="dots" size="sm" />,
     },
     {
       key: 'overall',
-      label: 'Geral',
+      label: 'Overall',
       sortable: true,
       render: (row) => <ScoreDisplay score={row.overall} variant="stars" size="sm" />,
     },
-    { key: 'caregiverName', label: 'Cuidador' },
+    { key: 'caregiverName', label: 'Caregiver' },
   ];
 
   return (
@@ -72,7 +72,7 @@ export function ReportsTable({ reports, onRowClick }: ReportsTableProps) {
       data={reports}
       keyExtractor={(r) => r.id}
       onRowClick={onRowClick}
-      emptyMessage="Nenhum boletim encontrado"
+      emptyMessage="No report cards found"
     />
   );
 }

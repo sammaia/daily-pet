@@ -16,9 +16,9 @@ export interface SubscriptionRow {
 }
 
 const statusConfig = {
-  active: { label: 'Ativa', variant: 'success' as const },
-  paused: { label: 'Pausada', variant: 'warning' as const },
-  cancelled: { label: 'Cancelada', variant: 'danger' as const },
+  active: { label: 'Active', variant: 'success' as const },
+  paused: { label: 'Paused', variant: 'warning' as const },
+  cancelled: { label: 'Cancelled', variant: 'danger' as const },
 };
 
 interface SubscriptionsTableProps {
@@ -29,7 +29,7 @@ export function SubscriptionsTable({ subscriptions }: SubscriptionsTableProps) {
   const columns: Column<SubscriptionRow>[] = [
     {
       key: 'tutorName',
-      label: 'Tutor',
+      label: 'Owner',
       sortable: true,
       render: (row) => (
         <div className="flex items-center gap-2">
@@ -38,10 +38,10 @@ export function SubscriptionsTable({ subscriptions }: SubscriptionsTableProps) {
         </div>
       ),
     },
-    { key: 'planName', label: 'Plano' },
+    { key: 'planName', label: 'Plan' },
     {
       key: 'amount',
-      label: 'Valor',
+      label: 'Amount',
       sortable: true,
       render: (row) => <span className="font-medium">{formatCurrency(row.amount)}</span>,
     },
@@ -55,7 +55,7 @@ export function SubscriptionsTable({ subscriptions }: SubscriptionsTableProps) {
     },
     {
       key: 'nextBilling',
-      label: 'Prox. Cobranca',
+      label: 'Next Billing',
       render: (row) => <span className="text-sm">{formatDateShort(row.nextBilling)}</span>,
     },
   ];
@@ -65,7 +65,7 @@ export function SubscriptionsTable({ subscriptions }: SubscriptionsTableProps) {
       columns={columns}
       data={subscriptions}
       keyExtractor={(r) => r.id}
-      emptyMessage="Nenhuma assinatura encontrada"
+      emptyMessage="No subscriptions found"
     />
   );
 }

@@ -15,7 +15,7 @@ export function AvailabilityMeter({ used, total, className }: AvailabilityMeterP
   return (
     <div className={cn('space-y-1.5', className)}>
       <div className="flex items-center justify-between">
-        <span className="text-sm font-medium text-gray-700">Vagas</span>
+        <span className="text-sm font-medium text-gray-700">Spots</span>
         <span className={cn('text-sm font-bold', textColor)}>
           {used}/{total}
         </span>
@@ -26,7 +26,7 @@ export function AvailabilityMeter({ used, total, className }: AvailabilityMeterP
           style={{ width: `${Math.min(pct, 100)}%` }}
         />
       </div>
-      <p className="text-xs text-gray-500">{total - used} vagas disponiveis</p>
+      <p className="text-xs text-gray-500">{total - used} spots available</p>
     </div>
   );
 }

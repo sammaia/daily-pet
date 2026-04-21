@@ -14,11 +14,11 @@ interface VaccineReq {
 
 export function VaccineRequirements() {
   const [vaccines, setVaccines] = useState<VaccineReq[]>([
-    { id: '1', name: 'V10 (Polivalente)', required: true },
-    { id: '2', name: 'Antirrabica', required: true },
-    { id: '3', name: 'Giardíase', required: true },
-    { id: '4', name: 'Gripe Canina (Tosse Canil)', required: false },
-    { id: '5', name: 'Leishmaniose', required: false },
+    { id: '1', name: 'V10 (Polyvalent)', required: true },
+    { id: '2', name: 'Rabies', required: true },
+    { id: '3', name: 'Giardia', required: true },
+    { id: '4', name: 'Kennel Cough', required: false },
+    { id: '5', name: 'Leishmaniasis', required: false },
   ]);
   const [newVaccine, setNewVaccine] = useState('');
 
@@ -39,8 +39,8 @@ export function VaccineRequirements() {
   return (
     <div className="space-y-6">
       <div>
-        <h3 className="font-semibold text-gray-800 mb-1">Vacinas Exigidas</h3>
-        <p className="text-sm text-gray-500">Configure quais vacinas sao obrigatorias para aceitar pets</p>
+        <h3 className="font-semibold text-gray-800 mb-1">Required Vaccines</h3>
+        <p className="text-sm text-gray-500">Configure which vaccines are mandatory to accept pets</p>
       </div>
 
       <div className="space-y-2">
@@ -51,7 +51,7 @@ export function VaccineRequirements() {
             <Toggle
               checked={v.required}
               onChange={(checked) => toggleRequired(v.id, checked)}
-              label={v.required ? 'Obrigatoria' : 'Opcional'}
+              label={v.required ? 'Required' : 'Optional'}
             />
             <button
               onClick={() => removeVaccine(v.id)}
@@ -67,11 +67,11 @@ export function VaccineRequirements() {
         <Input
           value={newVaccine}
           onChange={(e) => setNewVaccine(e.target.value)}
-          placeholder="Nome da vacina"
+          placeholder="Vaccine name"
           onKeyDown={(e) => e.key === 'Enter' && addVaccine()}
         />
         <Button variant="outline" onClick={addVaccine} className="gap-1.5 shrink-0">
-          <Plus size={14} /> Adicionar
+          <Plus size={14} /> Add
         </Button>
       </div>
     </div>

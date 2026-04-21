@@ -11,9 +11,9 @@ import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 
 const bookingSchema = z.object({
-  petId: z.string().min(1, 'Selecione um pet'),
-  date: z.string().min(1, 'Selecione uma data'),
-  shift: z.string().min(1, 'Selecione um turno'),
+  petId: z.string().min(1, 'Select a pet'),
+  date: z.string().min(1, 'Select a date'),
+  shift: z.string().min(1, 'Select a shift'),
   notes: z.string().optional(),
 });
 
@@ -49,42 +49,42 @@ export function NewBookingModal({ open, onClose }: NewBookingModalProps) {
   }
 
   return (
-    <Modal open={open} onClose={onClose} title="Novo Agendamento" className="max-w-lg">
+    <Modal open={open} onClose={onClose} title="New Booking" className="max-w-lg">
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
         <Select
           label="Pet"
           options={mockPets}
-          placeholder="Selecione o pet"
+          placeholder="Select the pet"
           error={errors.petId?.message}
           {...register('petId')}
         />
         <Input
-          label="Data"
+          label="Date"
           type="date"
           error={errors.date?.message}
           {...register('date')}
         />
         <Select
-          label="Turno"
+          label="Shift"
           options={[
-            { value: 'morning', label: 'Manha (07:00 - 12:00)' },
-            { value: 'afternoon', label: 'Tarde (13:00 - 18:00)' },
-            { value: 'full_day', label: 'Integral (07:00 - 18:00)' },
+            { value: 'morning', label: 'Morning (07:00 - 12:00)' },
+            { value: 'afternoon', label: 'Afternoon (13:00 - 18:00)' },
+            { value: 'full_day', label: 'Full Day (07:00 - 18:00)' },
           ]}
-          placeholder="Selecione o turno"
+          placeholder="Select the shift"
           error={errors.shift?.message}
           {...register('shift')}
         />
         <Textarea
-          label="Observacoes"
-          placeholder="Algo que devemos saber sobre o pet neste dia?"
+          label="Notes"
+          placeholder="Anything we should know about the pet on this day?"
           {...register('notes')}
         />
         <div className="flex justify-end gap-3 pt-2">
           <Button variant="outline" type="button" onClick={onClose}>
-            Cancelar
+            Cancel
           </Button>
-          <Button type="submit">Criar Agendamento</Button>
+          <Button type="submit">Create Booking</Button>
         </div>
       </form>
     </Modal>

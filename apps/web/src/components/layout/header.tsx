@@ -7,14 +7,14 @@ import { cn } from '@/lib/utils/cn';
 import { useAuth } from '@/hooks/use-auth';
 
 const pageConfig: Record<string, { title: string; subtitle: string }> = {
-  '/dashboard': { title: 'Visao do Dia', subtitle: 'Acompanhe a operacao da sua creche' },
-  '/dashboard/agendamentos': { title: 'Agendamentos', subtitle: 'Gerencie reservas e disponibilidade' },
-  '/dashboard/pets': { title: 'Pets', subtitle: 'Cadastro e historico dos pets' },
-  '/dashboard/boletins': { title: 'Boletim Diario', subtitle: 'Avalie o dia dos pets' },
-  '/dashboard/turmas': { title: 'Turmas', subtitle: 'Grupos e distribuicao por turno' },
-  '/dashboard/financeiro': { title: 'Financeiro', subtitle: 'Receitas, faturas e pagamentos' },
-  '/dashboard/chat': { title: 'Chat', subtitle: 'Comunicacao com tutores' },
-  '/dashboard/config': { title: 'Configuracoes', subtitle: 'Ajustes da creche e equipe' },
+  '/dashboard': { title: 'Day Overview', subtitle: 'Track your daycare operations' },
+  '/dashboard/agendamentos': { title: 'Bookings', subtitle: 'Manage reservations and availability' },
+  '/dashboard/pets': { title: 'Pets', subtitle: 'Pet registry and history' },
+  '/dashboard/boletins': { title: 'Report Cards', subtitle: 'Evaluate pets\' day' },
+  '/dashboard/turmas': { title: 'Groups', subtitle: 'Groups and shift distribution' },
+  '/dashboard/financeiro': { title: 'Financials', subtitle: 'Revenue, invoices and payments' },
+  '/dashboard/chat': { title: 'Chat', subtitle: 'Communication with pet owners' },
+  '/dashboard/config': { title: 'Settings', subtitle: 'Daycare and team settings' },
 };
 
 export function Header() {
@@ -60,14 +60,14 @@ export function Header() {
                     <p className="text-xs text-gray-500">{email}</p>
                   </div>
                   <a href="/dashboard/config" className="flex items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50">
-                    <Settings size={14} /> Configuracoes
+                    <Settings size={14} /> Settings
                   </a>
                   <a href="/dashboard/config" className="flex items-center gap-2 px-3 py-2 text-sm text-gray-700 hover:bg-gray-50">
-                    <User size={14} /> Meu Perfil
+                    <User size={14} /> My Profile
                   </a>
                   <div className="border-t border-gray-100">
                     <button onClick={signOut} className="flex items-center gap-2 px-3 py-2 text-sm text-red-600 hover:bg-red-50 w-full">
-                      <LogOut size={14} /> Sair
+                      <LogOut size={14} /> Sign Out
                     </button>
                   </div>
                 </div>

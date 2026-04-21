@@ -23,36 +23,36 @@ export function PetReportsTab({ reports }: PetReportsTabProps) {
   const columns: Column<ReportEntry>[] = [
     {
       key: 'date',
-      label: 'Data',
+      label: 'Date',
       sortable: true,
       render: (row) => <span className="font-medium">{formatDateShort(row.date)}</span>,
     },
     {
       key: 'feeding',
-      label: 'Alimentacao',
+      label: 'Feeding',
       render: (row) => <ScoreDisplay score={row.feeding} variant="dots" size="sm" />,
     },
     {
       key: 'behavior',
-      label: 'Comportamento',
+      label: 'Behavior',
       render: (row) => <ScoreDisplay score={row.behavior} variant="dots" size="sm" />,
     },
     {
       key: 'socialization',
-      label: 'Socializacao',
+      label: 'Socialization',
       render: (row) => <ScoreDisplay score={row.socialization} variant="dots" size="sm" />,
     },
     {
       key: 'energy',
-      label: 'Energia',
+      label: 'Energy',
       render: (row) => <ScoreDisplay score={row.energy} variant="dots" size="sm" />,
     },
     {
       key: 'overall',
-      label: 'Geral',
+      label: 'Overall',
       render: (row) => <ScoreDisplay score={row.overall} variant="stars" size="sm" />,
     },
-    { key: 'caregiverName', label: 'Cuidador' },
+    { key: 'caregiverName', label: 'Caregiver' },
   ];
 
   return (
@@ -60,7 +60,7 @@ export function PetReportsTab({ reports }: PetReportsTabProps) {
       columns={columns}
       data={reports}
       keyExtractor={(r) => r.id}
-      emptyMessage="Nenhum boletim encontrado"
+      emptyMessage="No report cards found"
     />
   );
 }

@@ -27,10 +27,10 @@ export function ReportView({
   notes,
 }: ReportViewProps) {
   const categories = [
-    { label: 'Alimentacao', score: feeding },
-    { label: 'Comportamento', score: behavior },
-    { label: 'Socializacao', score: socialization },
-    { label: 'Energia', score: energy },
+    { label: 'Feeding', score: feeding },
+    { label: 'Behavior', score: behavior },
+    { label: 'Socialization', score: socialization },
+    { label: 'Energy', score: energy },
   ];
 
   return (
@@ -40,10 +40,10 @@ export function ReportView({
         <Avatar name={petName} size="md" />
         <div className="flex-1">
           <h4 className="font-semibold text-gray-900">{petName}</h4>
-          <p className="text-xs text-gray-500">{formatDateShort(date)} — por {caregiverName}</p>
+          <p className="text-xs text-gray-500">{formatDateShort(date)} — by {caregiverName}</p>
         </div>
         <div className="text-right">
-          <p className="text-xs text-gray-400 mb-1">Nota Geral</p>
+          <p className="text-xs text-gray-400 mb-1">Overall Score</p>
           <ScoreDisplay score={overall} variant="stars" size="sm" />
         </div>
       </div>
@@ -61,7 +61,7 @@ export function ReportView({
       {/* Notes */}
       {notes && (
         <div className="bg-gray-50 rounded-lg p-3 mt-3">
-          <p className="text-xs text-gray-400 mb-1">Observacoes</p>
+          <p className="text-xs text-gray-400 mb-1">Notes</p>
           <p className="text-sm text-gray-700">{notes}</p>
         </div>
       )}

@@ -11,7 +11,7 @@ import { Input } from '@/components/ui/input';
 import { createClient } from '@/lib/supabase/client';
 
 const schema = z.object({
-  email: z.string().email('Email invalido'),
+  email: z.string().email('Invalid email'),
 });
 
 type ForgotPasswordForm = z.infer<typeof schema>;
@@ -40,13 +40,13 @@ export default function ForgotPasswordPage() {
       });
 
       if (error) {
-        setError('Erro ao enviar email. Tente novamente.');
+        setError('Error sending email. Please try again.');
         return;
       }
 
       setSent(true);
     } catch {
-      setError('Erro ao enviar email. Tente novamente.');
+      setError('Error sending email. Please try again.');
     } finally {
       setIsSubmitting(false);
     }
@@ -66,17 +66,17 @@ export default function ForgotPasswordPage() {
         className="inline-flex items-center gap-1 text-sm text-gray-500 hover:text-gray-700 mb-6"
       >
         <ArrowLeft size={14} />
-        Voltar ao login
+        Back to login
       </Link>
 
-      <h1 className="text-2xl font-bold text-gray-900">Recuperar senha</h1>
+      <h1 className="text-2xl font-bold text-gray-900">Reset password</h1>
       <p className="text-gray-500 mt-1 mb-8">
-        Informe seu email e enviaremos um link para redefinir sua senha.
+        Enter your email and we will send you a link to reset your password.
       </p>
 
       {sent ? (
         <div className="p-4 rounded-lg bg-green-50 border border-green-200 text-green-700 text-sm">
-          Email enviado! Verifique sua caixa de entrada e siga as instrucoes para redefinir sua senha.
+          Email sent! Check your inbox and follow the instructions to reset your password.
         </div>
       ) : (
         <>
@@ -92,7 +92,7 @@ export default function ForgotPasswordPage() {
               <Input
                 label="Email"
                 type="email"
-                placeholder="seu@email.com"
+                placeholder="your@email.com"
                 className="pl-9"
                 error={errors.email?.message}
                 {...register('email')}
@@ -100,7 +100,7 @@ export default function ForgotPasswordPage() {
             </div>
 
             <Button type="submit" className="w-full" isLoading={isSubmitting}>
-              Enviar link de recuperacao
+              Send recovery link
             </Button>
           </form>
         </>

@@ -26,7 +26,7 @@ export function PendingReportCard({ petName, petBreed, shift, checkInTime, onCre
           </div>
         </div>
         <Button size="sm" onClick={onCreateReport} className="gap-1.5 shrink-0">
-          <FileText size={14} /> Criar Boletim
+          <FileText size={14} /> Create Report Card
         </Button>
       </div>
     </div>
